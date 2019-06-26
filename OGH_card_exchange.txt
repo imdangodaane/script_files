@@ -1,44 +1,10 @@
 // HOW TO RELOAD AN NPC WITH path:
 // @reloadnpcfile npc/custom/jobmaster.txt
 
-glast_01,191,274,4	script	Card Exchanger	757,{
+geffen,112,67,4	script	Card Album Collector	737,{
 
-mes "[Portrait Collector]";
-mes "Do you want to exchange for White Knight Card and Khalitzburg Knight Card?";
-switch ( select ( "I want to exchange White Knight Card","I want to exchange Khalitzburg Knight Card","Cancel" ) ) {
-	case 1:
-		mes "Do you want to exchange White Knight Card? You have to give me 6000 coagulated spell?";
-		if ( select ( "6000 Coagulated Spell","Cancel") == 1 ) {
-			if ( countitem(6608) < 6000 ) {
-				mes "You don't have enough Coagulated Spell.";
-				close;
-			} else {
-				delitem 6608,6000;
-				getitem 4608,1;
-				mes "Done";
-				close;
-			}
-		} else {
-			close;
-		}
-	case 2:
-		mes "Do you want to exchange Khalitzburg Knight Card? You have to give me 10000 coagulated spell?";
-		if ( select ( "10000 Coagulated Spell","Cancel") == 1 ) {
-			if ( countitem(6608) < 10000 ) {
-				mes "You don't have enough Coagulated Spell.";
-				close;
-			} else {
-				delitem 6608,10000;
-				getitem 4609,1;
-				mes "Done";
-				close;
-			}
-		} else {
-			close;
-		}
-	case 3:
-		mes "Bye bye~";
-		close;
-}
+mes "[Card Album Collector]";
+mes "Bạn có muốn đổi ^FFFF90Old Card Album^FFFFFF thành ^DA7096Mystic Card Album^FFFFFF không?"
+
 close;
 }

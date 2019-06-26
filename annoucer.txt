@@ -2,8 +2,7 @@
 OnInit:
 set .Time,300;
 setarray .News$[0],
-"Loa loa loa loa~",
-"Test thong bao, test thong bao~~~",
+"Tham gia event tích cực để nhận OCA có thể quy đổi ra MCA ~~~",
 "Happy playing ~~~~~~~~"; // Add more if you like. remember, at the last message you must put ';'!
 while( 1 ) { announce .News$[ rand( getarraysize( .News$ ) ) ], bc_all, 0xDA70D6;
 sleep ( .Time * 3000 ); } end; }
