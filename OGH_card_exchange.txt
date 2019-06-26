@@ -1,16 +1,15 @@
 // HOW TO RELOAD AN NPC WITH path:
 // @reloadnpcfile npc/custom/jobmaster.txt
-
 glast_01,191,274,4	script	Card Exchanger	757,{
 
 mes "[Portrait Collector]";
-mes "Do you want to exchange for White Knight Card and Khalitzburg Knight Card?"
+mes "Do you want to exchange for White Knight Card and Khalitzburg Knight Card?";
 switch ( select ( "I want to exchange White Knight Card","I want to exchange Khalitzburg Knight Card","Cancel" ) ) {
 	case 1:
 		mes "Do you want to exchange White Knight Card? You have to give me 6000 coagulated spell?";
 		if ( select ( "6000 Coagulated Spell","Cancel") == 1 ) {
 			if ( countitem(6608) < 6000 ) {
-				mes "You do not have enough Coagulated Spell.";
+				mes "You don't have enough Coagulated Spell.";
 				close;
 			} else {
 				delitem 6608,6000;
@@ -22,25 +21,22 @@ switch ( select ( "I want to exchange White Knight Card","I want to exchange Kha
 			close;
 		}
 	case 2:
-		mes "You choose Exchange Khalitzburg Card";
+		mes "Do you want to exchange Khalitzburg Knight Card? You have to give me 10000 coagulated spell?";
+		if ( select ( 10000 Coagulated Spell","Cancel") == 1 ) {
+			if ( countitem(6608) < 10000 ) {
+				mes "You don't have enough Coagulated Spell.";
+				close;
+			} else {
+				delitem 6608,10000;
+				getitem 4609,1;
+				mes "Done";
+				close;
+			}
+		} else {
+			close;
+		}
 	case 3:
-		mes "You choose Cancel";
 		close;
 }
 close;
 }
-
-//mes "Please input the amount of Yggdrasil Berry you wish to change into Yggdrasil Berry Box.";
-//mes "Currently , you have "+countitem(671)+" Yggdrasil Berry .";
-//input @amount,0,countitem(671);
-//if ( @amount < 1){
-//mes "You have choose to end the deal.";
-//close;
-//
-//}
-//
-//delitem 671,@amount;
-//getitem 13517,@amount;
-//mes "You have changed "+@amount+" Yggdrasil Berry  into Yggdrasil Berry Box.";
-//close;
-//}
