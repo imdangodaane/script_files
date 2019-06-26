@@ -1,7 +1,7 @@
 geffen,112,67,4	script	Card Album Colector	737,{
 
 mes "[Card Album Collector]";
-mes "Báº¡n cĂ³ muá»‘n Ä‘á»•i ^FFFF90Old Card Album^000000 thĂ nh ^DA70D6Mystic Card Album^000000 khĂ´ng?";
+mes "Bạn có muốn đổi ^FFFF90Old Card Album^000000 thành ^DA70D6Mystic Card Album^000000 không?";
 
 close;
 }
