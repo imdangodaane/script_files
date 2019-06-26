@@ -1,0 +1,9 @@
+-	script	Sample	-1,{
+OnInit:
+set .Time,300;
+setarray .News$[0],
+"Loa loa loa loa~",
+"Test thong bao, test thong bao~~~",
+"Happy playing ~~~~~~~~"; // Add more if you like. remember, at the last message you must put ';'!
+while( 1 ) { announce .News$[ rand( getarraysize( .News$ ) ) ], bc_all, 0xDA70D6;
+sleep ( .Time * 3000 ); } end; }

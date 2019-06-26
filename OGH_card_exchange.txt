@@ -1,5 +1,6 @@
 // HOW TO RELOAD AN NPC WITH path:
 // @reloadnpcfile npc/custom/jobmaster.txt
+
 glast_01,191,274,4	script	Card Exchanger	757,{
 
 mes "[Portrait Collector]";
@@ -22,7 +23,7 @@ switch ( select ( "I want to exchange White Knight Card","I want to exchange Kha
 		}
 	case 2:
 		mes "Do you want to exchange Khalitzburg Knight Card? You have to give me 10000 coagulated spell?";
-		if ( select ( 10000 Coagulated Spell","Cancel") == 1 ) {
+		if ( select ( "10000 Coagulated Spell","Cancel") == 1 ) {
 			if ( countitem(6608) < 10000 ) {
 				mes "You don't have enough Coagulated Spell.";
 				close;
@@ -36,6 +37,7 @@ switch ( select ( "I want to exchange White Knight Card","I want to exchange Kha
 			close;
 		}
 	case 3:
+		mes "Bye bye~";
 		close;
 }
 close;
