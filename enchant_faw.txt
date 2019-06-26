@@ -20,7 +20,7 @@ function	script	EnchantStat_1	{
 
 	.chance = rand(1,10);
 	
-	if(@card2 && @card3) { //For 4th Slot aka 3rd Enchant Slot
+	if(.@card2 && .@card3) { //For 4th Slot aka 3rd Enchant Slot
 		
 		if(.chance<5) .x=0; 
 		else if(.chance<7) .x=1; 
@@ -43,7 +43,7 @@ function	script	EnchantStat_1	{
 	
 //Equal Chance of Enchanting	
 function	script	EnchantStat_0	{
-	if(@card2 && @card3)
+	if(.@card2 && .@card3)
 		return  getelementofarray(getvariableofnpc( getd(".enc" + getarg(0) )  , "Valkyrie#faw"), rand(0,3) );
 	else
 		return  getelementofarray(getvariableofnpc( getd(".enc" + getarg(0) )  , "Valkyrie#faw"), rand(0,2) );
@@ -125,12 +125,12 @@ OnEnchantNow:
 	setd ".@enc$", select("Fighting Enchant:Magic Enchant:Archer Enchant:Critical/Fatal Enchant:Max HP Enchant:Max SP Enchant:ASPD Enchant:STR Enchant:AGI Enchant:DEX Enchant:VIT Enchant:INT Enchant:LUK Enchant");
 	if(.cost) callsub OnCostlyEnchant;
 	
-	@card1 = getequipcardid(5,0);
-	@card2 = getequipcardid(5,1);
-	@card3 = getequipcardid(5,2);
-	@card4 = getequipcardid(5,3);
+	.@card1 = getequipcardid(5,0);
+	.@card2 = getequipcardid(5,1);
+	.@card3 = getequipcardid(5,2);
+	.@card4 = getequipcardid(5,3);
 	
-	if( @card2 && @card3 && @card4) {
+	if( .@card2 && .@card3 && .@card4) {
 		mes .npc$,
 		"Hmm.. it seems that all", 
 		"slots have already been enchanted.";
@@ -139,9 +139,9 @@ OnEnchantNow:
 	
 	.@EnStat =   callfunc( (.chancetype?"EnchantStat_1":"EnchantStat_0"), .@enc$) ;
 	
-	if(!@card2) callsub OnFawEnchant , .@EnStat , @card3 , @card4 , .@refeq;	
-	else if(!@card3 && .@refeq>6) callsub OnFawEnchant , @card2 , .@EnStat , @card4 , .@refeq;
-	else if(!@card4 && .@refeq>8) callsub OnFawEnchant , @card2 , @card3 , .@EnStat , .@refeq;
+	if(!.@card2) callsub OnFawEnchant , .@EnStat , .@card3 , .@card4 , .@refeq;	
+	else if(!.@card3 && .@refeq>6) callsub OnFawEnchant , .@card2 , .@EnStat , .@card4 , .@refeq;
+	else if(!.@card4 && .@refeq>8) callsub OnFawEnchant , .@card2 , .@card3 , .@EnStat , .@refeq;
 	else {
 		mes .npc$,
 		"Sorry, but your",
@@ -157,8 +157,8 @@ OnEnchantNow:
 	close;
 
 OnFawEnChant:
-	delitem2 2589, 1, 1, getarg(3), 0, @card1, @card2, @card3, @card4;
-	getitem2 2589, 1, 1, getarg(3) , 0, @card1, getarg(0), getarg(1), getarg(2);
+	delitem2 2589, 1, 1, getarg(3), 0, .@card1, .@card2, .@card3, .@card4;
+	getitem2 2589, 1, 1, getarg(3) , 0, .@card1, getarg(0), getarg(1), getarg(2);
 	equip 2589;
 	specialeffect2 1019;
 	specialeffect2 98;
@@ -180,12 +180,12 @@ OnResetEnchant:
 	mes "Your ^000099Fallen Angel Wing^000000's",
 		"enchantments have been reset.";
 	.@refeq = getequiprefinerycnt(EQI_GARMENT);
-	@card1 = getequipcardid(5,0);
-	@card2 = getequipcardid(5,1);
-	@card3 = getequipcardid(5,2);
-	@card4 = getequipcardid(5,3);
-	delitem2 2589, 1, 1, .@refeq, 0, @card1, @card2, @card3, @card4;
-	getitem2 2589, 1, 1, .@refeq, 0, @card1, 0, 0, 0;
+	.@card1 = getequipcardid(5,0);
+	.@card2 = getequipcardid(5,1);
+	.@card3 = getequipcardid(5,2);
+	.@card4 = getequipcardid(5,3);
+	delitem2 2589, 1, 1, .@refeq, 0, .@card1, .@card2, .@card3, .@card4;
+	getitem2 2589, 1, 1, .@refeq, 0, .@card1, 0, 0, 0;
 	equip 2589;
 	specialeffect2 261;
 	specialeffect2 119;
