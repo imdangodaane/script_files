@@ -1,7 +1,23 @@
-geffen,112,67,4	script	Card Album Colector	737,{
+geffen,112,67,4	script	Card Album Colector	758,{
+
+set @rate,50;
 
 mes "[Card Album Collector]";
-mes "Bạn có muốn đổi ^FFFF90Old Card Album^000000 thành ^DA70D6Mystic Card Album^000000 không?";
-
+mes "Ban co muon doi ^FFFF90Old Card Album^000000 thanh ^DA70D6Mystic Card Album^000000 khong?";
+mes "Ti le: "+@rate+" "^FFFF90Old Card Album^000000 = 1 ^DA70D6Mystic Card Album^000000";
+mes "Hien tai ban co: " + countitem(616) + "^FFFF90Old Card Album^000000"; 
+if ( select("Yes","Cancel") == 1 ) {
+	if ( countitem(616) < @rate ) {
+		next;
+		mes "Khong du ^FFFF90Old Card Album^000000 roi` ...";
+		close;
+	} else {
+		next;
+		delitem 616,50;
+		getitem 12246,1;
+		mes "^28BF00Done";
+		close;
+	}
+}
 close;
 }
