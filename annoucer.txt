@@ -1,8 +1,10 @@
 -	script	Sample	-1,{
 OnInit:
-set .Time,300;
+set .Time,30;
+set .AutoGen,"[Auto Generate Text]";
 setarray .News$[0],
-"Tham gia event tích cực để nhận OCA có thể quy đổi ra MCA ~~~",
+.AutoGen+" 22:00 se tien hanh reload server de update them items trong cash shop, moi nguoi tranh thu nha ~~~",
 "Happy playing ~~~~~~~~"; // Add more if you like. remember, at the last message you must put ';'!
+
 while( 1 ) { announce .News$[ rand( getarraysize( .News$ ) ) ], bc_all, 0xDA70D6;
 sleep ( .Time * 3000 ); } end; }
